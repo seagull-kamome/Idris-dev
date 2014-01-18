@@ -4,6 +4,7 @@ import Builtins
 
 import Prelude.Maybe
 import Prelude.List
+import Prelude.Bifunctor
 
 data Either a b
   = Left a
@@ -72,7 +73,8 @@ instance (Eq a, Eq b) => Eq (Either a b) where
   (==) (Right x) (Right y) = x == y
   (==) _         _         = False
 
-
+instance Bifunctor Either where
+  bimap f g x = either x (Left . f) (Right . g)
 
 --------------------------------------------------------------------------------
 -- Injectivity of constructors
