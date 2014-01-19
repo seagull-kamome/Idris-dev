@@ -261,30 +261,27 @@ elab ist info pattern opts fn tm
     elab' ina f@(PInferRef fc n) = elab' ina (PApp fc f [])
     elab' ina (PRef fc n) = erun fc $ do apply (Var n) []; solve
     elab' ina@(_, a, inty) (PLam n Placeholder sc)
-          = do -- n' <- unique_hole n
-               -- let sc' = mapPT (repN n n') sc
-               ptm <- get_term
-               g <- goal
+          = do -- if n is a type constructor name, this makes no sense...
+               ctxt <- get_context
+               when (isTConName n ctxt) $
+                    lift $ tfail (Msg $ "Can't use type constructor " ++ show n ++ " here")  
                checkPiGoal n
                attack; intro (Just n);
                -- trace ("------ intro " ++ show n ++ " ---- \n" ++ show ptm)
                elabE (True, a, inty) sc; solve
-       where repN n n' (PRef fc x) | x == n' = PRef fc n'
-             repN _ _ t = t
     elab' ina@(_, a, inty) (PLam n ty sc)
-          = do hsin <- get_holes
-               ptmin <- get_term
-               tyn <- getNameFrom (sMN 0 "lamty")
+          = do tyn <- getNameFrom (sMN 0 "lamty")
+               -- if n is a type constructor name, this makes no sense...
+               ctxt <- get_context
+               when (isTConName n ctxt) $
+                    lift $ tfail (Msg $ "Can't use type constructor " ++ show n ++ " here")  
                checkPiGoal n
                claim tyn RType
                explicit tyn
                attack
                ptm <- get_term
                hs <- get_holes
-               -- trace ("BEFORE:\n" ++ show hsin ++ "\n" ++ show ptmin ++
-               --       "\nNOW:\n" ++ show hs ++ "\n" ++ show ptm) $
                introTy (Var tyn) (Just n)
-               -- end_unify
                focus tyn
                elabE (True, a, True) ty
                elabE (True, a, inty) sc
