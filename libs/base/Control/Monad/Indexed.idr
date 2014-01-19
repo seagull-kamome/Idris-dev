@@ -1,4 +1,4 @@
-module Prelude.Indexed
+module Control.Monad.Indexed
 
 import Prelude.Basics
 
