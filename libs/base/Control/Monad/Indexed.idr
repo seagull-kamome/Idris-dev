@@ -2,6 +2,8 @@ module Prelude.Indexed
 
 import Prelude.Basics
 
+%access public
+%default total
 
 class IndexedFunctor (f : Type -> Type -> Type -> Type) where
   ixmap : (a -> b) -> f i j a -> f i j b
@@ -16,4 +18,6 @@ class IndexedApplicative f => IndexedMonad (f : Type -> Type -> Type -> Type) wh
 ixreturn : IndexedMonad f => a -> f i i a
 ixreturn = ixpure
 
+ixflatten : IndexedMonad f => f i j (f i j a) -> f i j a
+ixflatten a = id `ixbind` a
 
