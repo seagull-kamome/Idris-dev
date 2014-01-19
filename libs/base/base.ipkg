@@ -24,11 +24,13 @@ modules = System,
           Data.SortedMap, Data.SortedSet, Data.BoundedList,
           Data.Vect, Data.HVect, Data.Vect.Quantifiers,
           Data.Floats, Data.Complex, Data.Heap,
+	  Data.Hashable,
 
           Control.Isomorphism,
           Control.Monad.Identity,
           Control.Monad.RWS,
           Control.Monad.State, Control.Monad.Writer, Control.Monad.Reader,
+          Control.Monad.Indexed, Control.Monad.Ideal,
           Control.Category, Control.Arrow,
           Control.Catchable, Control.IOExcept
 

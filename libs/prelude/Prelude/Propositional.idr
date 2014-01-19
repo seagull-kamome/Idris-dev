@@ -5,6 +5,7 @@ import Prelude.Basics
 
 infixl 3 /\, \/
 
+
 (\/): Type -> Type -> Type
 x \/ y = Either x y
 

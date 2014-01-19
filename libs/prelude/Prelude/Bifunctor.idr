@@ -4,11 +4,11 @@ import Prelude.Basics
 
 class Bifunctor (f : Type -> Type -> Type) where
     bimap : (a -> b) -> (c -> d) -> f a c -> f b d
-    bimap f g = first f . second g
-    first : (a -> b) -> f a c -> f b c
-    first f = bimap f id
-    second : (c -> d) -> f a c -> f a d
-    second = bimap id
+    --bimap f g = first f . second g
+    --first : (a -> b) -> f a c -> f b c
+    --first f = bimap f id
+    --second : (c -> d) -> f a c -> f a d
+    --second = bimap id
 
 --instance Bifunctor (\a, b => (a, b)) where
 --    bimap f g (x, y) = (f x, g y)
