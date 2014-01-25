@@ -842,7 +842,8 @@ elabCon info syn tn codata (doc, n, t_in, fc, forcenames)
              else return ()
     tyIs t = tclift $ tfail (At fc (Msg (show t ++ " is not " ++ show tn)))
 
-    mkLazy (PPi pl n ty sc) = PPi (pl { plazy = True }) n ty (mkLazy sc)
+    mkLazy (PPi pl n ty sc) 
+        = PPi (pl { pargopts = nub (Lazy : pargopts pl) }) n ty (mkLazy sc)
     mkLazy t = t
 
     getNamePos :: Int -> PTerm -> Name -> Maybe Int
@@ -1332,7 +1333,7 @@ elabClause info opts (cnum, PClause fc fname lhs_in withs rhs_in whereblock)
                         return (tm, ds, is))
         logLvl 5 "DONE CHECK"
         logLvl 2 $ "---> " ++ show rhs'
-        when (not (null defer)) $ iLOG $ "DEFERRED " ++ show defer
+        when (not (null defer)) $ iLOG $ "DEFERRED " ++ show (map fst defer)
         def' <- checkDef fc defer
         let def'' = map (\(n, (i, top, t)) -> (n, (i, top, t, False))) def'
         addDeferred def''
@@ -1908,11 +1909,11 @@ elabInstance info syn what fc cs n ps t expn ds = do
           = PLam (sMN i "meth") Placeholder (lamBind (i+1) sc sc')
     lamBind i _ sc = sc
     methArgs i (PPi (Imp _ _ _ _) n ty sc)
-        = PImp 0 True False n (PRef fc (sMN i "meth")) "" : methArgs (i+1) sc
+        = PImp 0 True [] n (PRef fc (sMN i "meth")) "" : methArgs (i+1) sc
     methArgs i (PPi (Exp _ _ _ _) n ty sc)
-        = PExp 0 False (PRef fc (sMN i "meth")) "" : methArgs (i+1) sc
+        = PExp 0 [] (PRef fc (sMN i "meth")) "" : methArgs (i+1) sc
     methArgs i (PPi (Constraint _ _ _) n ty sc)
-        = PConstraint 0 False (PResolveTC fc) "" : methArgs (i+1) sc
+        = PConstraint 0 [] (PResolveTC fc) "" : methArgs (i+1) sc
     methArgs i _ = []
 
     papp fc f [] = f
@@ -2126,7 +2127,7 @@ elabDecl' _ _ _ = return () -- skipped this time
 
 elabCaseBlock info opts d@(PClauses f o n ps)
         = do addIBC (IBCDef n)
-             logLvl 6 $ "CASE BLOCK: " ++ show (n, d)
+             logLvl 5 $ "CASE BLOCK: " ++ show (n, d)
              let opts' = nub (o ++ opts)
              -- propagate totality assertion to the new definitions
              when (AssertTotal `elem` opts) $ setFlags n [AssertTotal]
