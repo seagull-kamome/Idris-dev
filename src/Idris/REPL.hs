@@ -51,6 +51,7 @@ import Idris.Core.Execute (execute)
 import Idris.Core.TT
 import Idris.Core.Unify
 import Idris.Core.Constraints
+import Idris.Core.Pretty (OutputAnnotation (..))
 
 import IRTS.Compiler
 import IRTS.CodegenCommon

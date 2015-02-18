@@ -4,6 +4,7 @@ module Idris.Output where
 
 import Idris.Core.TT
 import Idris.Core.Evaluate (isDConName, isTConName, isFnName, normaliseAll)
+import Idris.Core.Pretty
 
 import Idris.AbsSyntax
 import Idris.Delaborate

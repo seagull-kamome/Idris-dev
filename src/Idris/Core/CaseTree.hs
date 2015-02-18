@@ -2,10 +2,8 @@
 
 module Idris.Core.CaseTree(CaseDef(..), SC, SC'(..), CaseAlt, CaseAlt'(..), ErasureInfo,
                      Phase(..), CaseTree, CaseType(..),
-                     simpleCase, small, namesUsed, findCalls, findUsedArgs,
+                     simpleCase, namesUsed, findCalls, findUsedArgs, findAllUsedArgs, small,
                      substSC, substAlt, mkForce) where
-
-import Idris.Core.TT
 
 import Control.Applicative hiding (Const)
 import Control.Monad.State
@@ -14,6 +12,10 @@ import Data.Maybe
 import Data.List hiding (partition)
 import qualified Data.List(partition)
 import Debug.Trace
+
+
+import Idris.Core.TT
+
 
 data CaseDef = CaseDef [Name] !SC [Term]
     deriving Show
@@ -93,27 +95,10 @@ type CaseTree = SC
 type Clause   = ([Pat], (Term, Term))
 type CS = ([Term], Int, [(Name, Type)])
 
-instance TermSize SC where
-    termsize n (Case _ n' as) = termsize n as
-    termsize n (ProjCase n' as) = termsize n as
-    termsize n (STerm t) = termsize n t
-    termsize n _ = 1
-
-instance TermSize CaseAlt where
-    termsize n (ConCase _ _ _ s) = termsize n s
-    termsize n (FnCase _ _ s) = termsize n s
-    termsize n (ConstCase _ s) = termsize n s
-    termsize n (SucCase _ s) = termsize n s
-    termsize n (DefaultCase s) = termsize n s
-
 -- simple terms can be inlined trivially - good for primitives in particular
 -- To avoid duplicating work, don't inline something which uses one
 -- of its arguments in more than one place
 
-small :: Name -> [Name] -> SC -> Bool
-small n args t = let as = findAllUsedArgs t args in
-                     length as == length (nub as) &&
-                     termsize n t < 10
 
 namesUsed :: SC -> [Name]
 namesUsed sc = nub $ nu' [] sc where
@@ -790,3 +775,24 @@ mkForce = mkForceSC
         = DefaultCase (mkForceSC n arg rhs)
 
     forceTm n arg t = subst n arg t
+
+
+
+instance TermSize SC where
+    termsize n (Case _ n' as) = termsize n as
+    termsize n (ProjCase n' as) = termsize n as
+    termsize n (STerm t) = termsize n t
+    termsize n _ = 1
+
+instance TermSize CaseAlt where
+    termsize n (ConCase _ _ _ s) = termsize n s
+    termsize n (FnCase _ _ s) = termsize n s
+    termsize n (ConstCase _ s) = termsize n s
+    termsize n (SucCase _ s) = termsize n s
+    termsize n (DefaultCase s) = termsize n s
+
+small :: Name -> [Name] -> SC -> Bool
+small n args t = let as = findAllUsedArgs t args in
+                     length as == length (nub as) &&
+                     termsize n t < 10
+

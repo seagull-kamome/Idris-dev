@@ -7,6 +7,7 @@ import Idris.Core.TT
 import Idris.Core.Evaluate
 import Idris.Core.Elaborate hiding (Tactic(..))
 import Idris.Core.Typecheck
+import Idris.Core.Pretty
 import Idris.Docstrings
 import IRTS.Lang
 import IRTS.CodegenCommon

@@ -13,7 +13,8 @@ import Cheapskate.Html (renderDoc)
 
 import Util.Pretty
 
-import Idris.Core.TT (OutputAnnotation(..), TextFormatting(..), Name, Term, Err)
+import Idris.Core.TT (Name, Term, Err)
+import Idris.Core.Pretty (OutputAnnotation(..), TextFormatting(..))
 
 import qualified Data.Text as T
 import qualified Data.Foldable as F

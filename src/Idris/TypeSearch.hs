@@ -27,6 +27,7 @@ import Idris.AbsSyntaxTree (class_instances, ClassInfo, defaultSyntax, eqTy, Idr
 import Idris.Core.Evaluate (Context (definitions), Def (Function, TyDecl, CaseOp), normaliseC)
 import Idris.Core.TT hiding (score)
 import Idris.Core.Unify (match_unify)
+import Idris.Core.Pretty (OutputAnnotation (..))
 import Idris.Delaborate (delabTy)
 import Idris.Docstrings (noDocs, overview)
 import Idris.Elab.Type (elabType)

@@ -4,8 +4,8 @@
 -- | Generation of HTML documentation for Idris code
 module Idris.IdrisDoc (generateDocs) where
 
-import Idris.Core.TT (Name (..), sUN, SpecialName (..), OutputAnnotation (..),
-                      TextFormatting (..), txt, str, nsroot, constIsType, toAlist)
+import Idris.Core.TT (Name (..), sUN, SpecialName (..), txt, str, nsroot, constIsType, toAlist)
+import Idris.Core.Pretty ( OutputAnnotation (..), TextFormatting (..))
 import Idris.Core.Evaluate (ctxtAlist, Def (..), lookupDefAcc,
                             Accessibility (..), isDConName, isFnName,
                             isTConName)

@@ -20,7 +20,6 @@ import Control.Arrow ((***))
 import Data.List
 import Debug.Trace
 
-import Util.Pretty hiding (fill)
 
 data ProofState = PS { thname   :: Name,
                        holes    :: [Name], -- holes still to be solved
@@ -122,32 +121,6 @@ instance Show ProofState where
                showG ps (Guess t v) = showEnv ps ({- normalise ctxt ps -} t) ++
                                          " =?= " ++ showEnv ps v
                showG ps b = showEnv ps (binderTy b)
-
-instance Pretty ProofState OutputAnnotation where
-  pretty ps | [] <- holes ps =
-    pretty (thname ps) <+> colon <+> text " no more goals."
-  pretty ps | (h : hs) <- holes ps =
-    let tm = pterm ps
-        OK g = goal (Just h) tm 
-        nm = thname ps in
-    let wkEnv = premises g in
-      text "Other goals" <+> colon <+> pretty hs <+>
-      prettyPs wkEnv (reverse wkEnv) <+>
-      text "---------- " <+> text "Focussing on" <> colon <+> pretty nm <+> text " ----------" <+>
-      pretty h <+> colon <+> prettyGoal wkEnv (goalType g)
-    where
-      prettyGoal ps (Guess t v) =
-        prettyEnv ps t <+> text "=?=" <+> prettyEnv ps v
-      prettyGoal ps b = prettyEnv ps $ binderTy b
-
-      prettyPs env [] = empty
-      prettyPs env ((n, Let t v):bs) =
-        nest nestingSize (pretty n <+> colon <+>
-        prettyEnv env t <+> text "=" <+> prettyEnv env v <+>
-        nest nestingSize (prettyPs env bs))
-      prettyPs env ((n, b):bs) =
-        nest nestingSize (pretty n <+> colon <+> prettyEnv env (binderTy b) <+>
-        nest nestingSize (prettyPs env bs))
 
 holeName i = sMN i "hole"
 
