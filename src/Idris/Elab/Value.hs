@@ -48,7 +48,6 @@ import qualified Data.Text as T
 import Data.Char(isLetter, toLower)
 import Data.List.Split (splitOn)
 
-import Util.Pretty(pretty, text)
 
 -- Elaborate a value, returning any new bindings created (this will only
 -- happen if elaborating as a pattern clause)

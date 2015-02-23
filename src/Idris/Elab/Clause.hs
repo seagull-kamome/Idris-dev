@@ -32,7 +32,6 @@ import Idris.Core.Typecheck
 import Idris.Core.CaseTree
 
 import Idris.Docstrings hiding (Unchecked)
-import Util.Pretty hiding ((<$>))
 
 import Prelude hiding (id, (.))
 import Control.Category
@@ -52,7 +51,7 @@ import qualified Data.Text as T
 import Data.Char(isLetter, toLower)
 import Data.List.Split (splitOn)
 
-import Util.Pretty(pretty, text)
+import Util.Pretty(text)
 import Numeric
 
 -- | Elaborate a collection of left-hand and right-hand pairs - that is, a

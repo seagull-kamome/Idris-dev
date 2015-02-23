@@ -49,7 +49,6 @@ import qualified Data.Text as T
 import Data.Char(isLetter, toLower)
 import Data.List.Split (splitOn)
 
-import Util.Pretty(pretty, text)
 
 -- | Elaborate a type provider
 elabProvider :: ElabInfo -> SyntaxInfo -> FC -> ProvideWhat -> Name -> Idris ()

@@ -19,6 +19,7 @@ instance Sized a => Sized [a] where
 
 nestingSize :: Int
 nestingSize = 1
+{-# INLINE nestingSize #-}
 
 class Pretty a ty where
   pretty :: a -> Doc ty

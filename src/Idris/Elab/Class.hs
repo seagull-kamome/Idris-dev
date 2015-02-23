@@ -48,7 +48,6 @@ import qualified Data.Text as T
 import Data.Char(isLetter, toLower)
 import Data.List.Split (splitOn)
 
-import Util.Pretty(pretty, text)
 
 data MArgTy = IA | EA | CA deriving Show
 

@@ -48,7 +48,7 @@ import qualified Data.Text as T
 import Data.Char(isLetter, toLower)
 import Data.List.Split (splitOn)
 
-import Util.Pretty(pretty, text)
+import Util.Pretty(text)
 
 elabInstance :: ElabInfo -> SyntaxInfo ->
                 ElabWhat -> -- phase
