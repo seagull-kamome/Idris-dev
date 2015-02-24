@@ -9,12 +9,13 @@ module Idris.Core.Pretty (
 import Text.PrettyPrint.Annotated.Leijen
 import Util.Pretty hiding (Str)
 import qualified Data.Text as T
-import Data.List (nub)
+-- import Data.List (nub)
 
 import Idris.Core.TT
-import Idris.Core.CaseTree
+-- import Idris.Core.CaseTree
 import Idris.Core.ProofState
 import Idris.Core.ProofTerm
+import Idris.Core.SourcePos
 
 -- -------------------------------------------------------------------------
 
@@ -24,7 +25,7 @@ instance Sized FC where
 
 -- -------------------------------------------------------------------------
 
--- | Output annotation for pretty-printed name - decides colour
+  -- | Output annotation for pretty-printed name - decides colour
 data NameOutput = TypeOutput | FunOutput | DataOutput | MetavarOutput | PostulateOutput
 
 -- | Text formatting output

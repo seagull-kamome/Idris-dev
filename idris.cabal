@@ -645,6 +645,7 @@ Library
                 , Idris.Core.ProofTerm
                 , Idris.Core.TT
                 , Idris.Core.Pretty
+                , Idris.Core.SourcePos
                 , Idris.Core.Typecheck
                 , Idris.Core.Unify
 

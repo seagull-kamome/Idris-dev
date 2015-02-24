@@ -5,6 +5,7 @@ module Idris.Core.DeepSeq where
 import Idris.Core.TT
 import Idris.Core.CaseTree
 import Idris.Core.Evaluate
+import Idris.Core.SourcePos
 
 import Control.DeepSeq
 

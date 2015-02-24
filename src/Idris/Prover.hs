@@ -7,6 +7,7 @@ import Idris.Core.Evaluate
 import Idris.Core.CaseTree
 import Idris.Core.Typecheck
 import Idris.Core.Pretty (OutputAnnotation (..))
+import Idris.Core.SourcePos (FC (FC),fileFC)
 
 import Idris.Elab.Utils
 import Idris.Elab.Value

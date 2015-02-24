@@ -11,6 +11,7 @@ import Idris.Core.TT
 import Idris.Core.Elaborate hiding (Tactic(..))
 import Idris.Core.Evaluate
 import Idris.Core.Typecheck
+import Idris.Core.SourcePos
 
 import Control.Applicative hiding (Const)
 import Control.Monad.State

@@ -5,9 +5,8 @@ module Idris.AbsSyntax(module Idris.AbsSyntax, module Idris.AbsSyntaxTree) where
 
 import Idris.Core.TT
 import Idris.Core.Evaluate
-import Idris.Core.Elaborate hiding (Tactic(..))
-import Idris.Core.Typecheck
 import Idris.Core.Pretty
+import Idris.Core.SourcePos
 import Idris.AbsSyntaxTree
 import Idris.Colours
 import Idris.Docstrings
@@ -15,20 +14,17 @@ import Idris.IdeMode hiding (Opt(..))
 import IRTS.CodegenCommon
 import Util.DynamicLinker
 
-import System.Console.Haskeline
 import System.IO
 
 import Control.Applicative
 import Control.Monad.State
 
 import Data.List hiding (insert,union)
-import Data.Char
 import qualified Data.Text as T
 import Data.Either
 import qualified Data.Map as M
 import Data.Maybe
 import qualified Data.Set as S
-import Data.Word (Word)
 
 import Debug.Trace
 

@@ -8,6 +8,7 @@ import Data.Vector.Binary
 import qualified Data.Text as T
 
 import Idris.Core.TT
+import Idris.Core.SourcePos
 
 instance Binary ErrorReportPart where
   put (TextPart msg) = do putWord8 0 ; put msg

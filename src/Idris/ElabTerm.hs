@@ -15,6 +15,7 @@ import Idris.Core.TT
 import Idris.Core.Evaluate
 import Idris.Core.Unify
 import Idris.Core.Typecheck (check, recheck)
+import Idris.Core.SourcePos
 import Idris.ErrReverse (errReverse)
 import Idris.ElabQuasiquote (extractUnquotes)
 import Idris.Elab.Utils

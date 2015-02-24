@@ -19,6 +19,7 @@ import Idris.DSL
 
 import Idris.Core.TT
 import Idris.Core.Evaluate
+import Idris.Core.SourcePos (FC)
 
 import Idris.Docstrings
 

@@ -9,6 +9,8 @@ module Idris.Interactive(caseSplitAt, addClauseFrom, addProofClauseFrom,
 
 import Idris.Core.TT
 import Idris.Core.Evaluate
+import Idris.Core.SourcePos (fileFC)
+
 import Idris.CaseSplit
 import Idris.AbsSyntax
 import Idris.ElabDecls

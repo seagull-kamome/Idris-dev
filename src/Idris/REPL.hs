@@ -52,6 +52,7 @@ import Idris.Core.TT
 import Idris.Core.Unify
 import Idris.Core.Constraints
 import Idris.Core.Pretty (OutputAnnotation (..))
+import Idris.Core.SourcePos (FC (..), fileFC, emptyFC)
 
 import IRTS.Compiler
 import IRTS.CodegenCommon

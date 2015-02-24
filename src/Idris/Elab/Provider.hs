@@ -29,6 +29,7 @@ import Idris.Core.Evaluate
 import Idris.Core.Execute
 import Idris.Core.Typecheck
 import Idris.Core.CaseTree
+import Idris.Core.SourcePos (FC)
 
 import Idris.Docstrings
 

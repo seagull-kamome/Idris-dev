@@ -1,6 +1,7 @@
 module Idris.Elab.AsPat(desugarAs) where
 
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.AbsSyntax
 
 import Control.Applicative

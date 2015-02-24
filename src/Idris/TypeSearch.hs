@@ -24,10 +24,13 @@ import Idris.AbsSyntax (addUsingConstraints, addImpl, getIState, putIState, impl
 import Idris.AbsSyntaxTree (class_instances, ClassInfo, defaultSyntax, eqTy, Idris,
   IState (idris_classes, idris_docstrings, tt_ctxt, idris_outputmode),
   implicitAllowed, OutputMode(..), PTerm, toplevel)
+
 import Idris.Core.Evaluate (Context (definitions), Def (Function, TyDecl, CaseOp), normaliseC)
 import Idris.Core.TT hiding (score)
 import Idris.Core.Unify (match_unify)
 import Idris.Core.Pretty (OutputAnnotation (..))
+import Idris.Core.SourcePos (emptyFC)
+
 import Idris.Delaborate (delabTy)
 import Idris.Docstrings (noDocs, overview)
 import Idris.Elab.Type (elabType)

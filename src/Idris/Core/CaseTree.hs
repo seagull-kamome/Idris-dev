@@ -15,7 +15,7 @@ import Debug.Trace
 
 
 import Idris.Core.TT
-
+import Idris.Core.SourcePos
 
 data CaseDef = CaseDef [Name] !SC [Term]
     deriving Show

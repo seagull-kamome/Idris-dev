@@ -8,6 +8,7 @@ import Idris.AbsSyntax
 import Idris.Delaborate
 
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.Core.Evaluate
 
 import Control.Monad.State

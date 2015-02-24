@@ -1,6 +1,7 @@
 module Idris.Unlit(unlit) where
 
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Data.Char
 
 unlit :: FilePath -> String -> TC String

@@ -2,6 +2,7 @@ module Idris.ElabQuasiquote (extractUnquotes) where
 
 import Idris.Core.Elaborate hiding (Tactic(..))
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.AbsSyntax
 
 

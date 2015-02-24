@@ -8,6 +8,7 @@ import Debug.Trace
 import qualified Data.Vector.Unboxed as V (length)
 
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.Core.Evaluate
 
 -- To check conversion, normalise each term wrt the current environment.

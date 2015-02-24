@@ -27,6 +27,7 @@ import Idris.Core.Evaluate hiding (Unchecked)
 import Idris.Core.Execute
 import Idris.Core.Typecheck
 import Idris.Core.CaseTree
+import Idris.Core.SourcePos (fileFC)
 
 import Idris.Docstrings
 

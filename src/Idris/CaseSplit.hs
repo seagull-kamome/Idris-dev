@@ -21,6 +21,7 @@ import Idris.Elab.Value
 import Idris.Core.TT
 import Idris.Core.Typecheck
 import Idris.Core.Evaluate
+import Idris.Core.SourcePos (emptyFC)
 
 import Data.Maybe
 import Data.Char

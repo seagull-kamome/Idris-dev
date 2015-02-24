@@ -47,6 +47,7 @@ import qualified Util.Pretty as P
 
 import Idris.Core.TT
 import Idris.Core.Evaluate
+import Idris.Core.SourcePos
 
 import Control.Applicative hiding (Const)
 import Control.Monad

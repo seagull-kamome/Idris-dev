@@ -8,6 +8,7 @@ import Idris.Delaborate
 
 import Idris.Core.Evaluate (ctxtAlist)
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.Core.Typecheck
 import Idris.Core.Constraints
 import Idris.Output

@@ -15,6 +15,7 @@ import Idris.AbsSyntax
 import Idris.ParseHelpers
 
 import Idris.Core.TT
+import Idris.Core.SourcePos (FC)
 
 import Control.Applicative
 import Control.Monad

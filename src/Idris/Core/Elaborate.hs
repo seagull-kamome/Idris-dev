@@ -18,13 +18,14 @@ import Idris.Core.TT
 import Idris.Core.Evaluate
 import Idris.Core.Typecheck
 import Idris.Core.Unify
-import Idris.Core.DeepSeq
+-- import Idris.Core.DeepSeq
+import Idris.Core.SourcePos
 
-import Control.DeepSeq
+-- import Control.DeepSeq
 import Control.Monad.State.Strict
-import Data.Char
+-- import Data.Char
 import Data.List
-import Debug.Trace
+-- import Debug.Trace
 
 -- I don't really want this here, but it's useful for the test shell
 data Command = Theorem Name Raw

@@ -10,6 +10,7 @@ import Idris.AbsSyntax
 import Idris.Core.TT
 import Idris.Core.Evaluate
 import Idris.Core.Pretty
+import Idris.Core.SourcePos
 import Idris.Docstrings (overview, renderDocstring, renderDocTerm)
 import Idris.ErrReverse
 

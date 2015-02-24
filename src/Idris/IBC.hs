@@ -6,6 +6,7 @@ import Idris.Core.Evaluate
 import Idris.Core.TT
 import Idris.Core.Binary
 import Idris.Core.CaseTree
+import Idris.Core.SourcePos (FC)
 import Idris.AbsSyntax
 import Idris.Imports
 import Idris.Error

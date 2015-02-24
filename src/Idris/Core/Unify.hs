@@ -3,13 +3,15 @@
 module Idris.Core.Unify(match_unify, unify, Fails, FailContext(..), FailAt(..),
                         unrecoverable) where
 
-import Idris.Core.TT
-import Idris.Core.Evaluate
-
-import Control.Monad
+-- import Control.Monad
 import Control.Monad.State.Strict
 import Data.List
-import Debug.Trace
+-- import Debug.Trace
+
+import Idris.Core.TT
+import Idris.Core.SourcePos
+import Idris.Core.Evaluate
+
 
 -- Unification is applied inside the theorem prover. We're looking for holes
 -- which can be filled in, by matching one term's normal form against another.

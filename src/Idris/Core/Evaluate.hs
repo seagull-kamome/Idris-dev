@@ -23,6 +23,7 @@ import Data.Binary hiding (get, put)
 
 import Idris.Core.TT
 import Idris.Core.CaseTree
+import Idris.Core.SourcePos
 
 data EvalState = ES { limited :: [(Name, Int)],
                       nexthole :: Int,

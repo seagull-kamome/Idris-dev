@@ -2,6 +2,7 @@
 module Idris.Core.Constraints(ucheck) where
 
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.Core.Typecheck
 
 import Control.Applicative

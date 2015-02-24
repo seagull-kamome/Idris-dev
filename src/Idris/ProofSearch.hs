@@ -7,6 +7,7 @@ import Idris.Core.TT
 import Idris.Core.Evaluate
 import Idris.Core.CaseTree
 import Idris.Core.Typecheck
+import Idris.Core.SourcePos (fileFC)
 
 import Idris.AbsSyntax
 import Idris.Delaborate

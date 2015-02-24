@@ -5,6 +5,7 @@ module Idris.Coverage where
 import Idris.Core.TT
 import Idris.Core.Evaluate
 import Idris.Core.CaseTree
+import Idris.Core.SourcePos (FC)
 
 import Idris.AbsSyntax
 import Idris.Delaborate

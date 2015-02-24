@@ -19,6 +19,7 @@ import System.IO
 import Idris.Core.TT
 import Idris.Core.Binary
 import Idris.Core.Pretty
+import Idris.Core.SourcePos
 
 import Control.Applicative hiding (Const)
 

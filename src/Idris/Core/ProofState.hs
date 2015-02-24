@@ -11,14 +11,15 @@ module Idris.Core.ProofState(ProofState(..), newProof, envAtFocus, goalAtFocus,
 import Idris.Core.Typecheck
 import Idris.Core.Evaluate
 import Idris.Core.TT
+import Idris.Core.SourcePos
 import Idris.Core.Unify
 import Idris.Core.ProofTerm
 
 import Control.Monad.State.Strict
-import Control.Applicative hiding (empty)
+-- import Control.Applicative hiding (empty)
 import Control.Arrow ((***))
 import Data.List
-import Debug.Trace
+--import Debug.Trace
 
 
 data ProofState = PS { thname   :: Name,
